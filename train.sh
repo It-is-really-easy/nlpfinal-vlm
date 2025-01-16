@@ -1,0 +1,16 @@
+python train.py \
+    --lora_rank 128 \
+    --per_device_train_batch_size 1 \
+    --gradient_accumulation_steps 4 \
+    --num_train_epochs 4 \
+    --save_steps 6000 \
+    --save_total_limit 5 \
+    --learning_rate 3e-4 \
+    --seed 42 \
+    --lora_dropout 0.10 \
+    --ddp_find_unused_parameters=False \
+    --feature_proj_lr 1e-4 \
+    --remove_unused_columns false \
+    --logging_steps 100 \
+    --output_dir ./weights/train_V1_5 \
+    --target_modules "c_attn|w1|w2"
